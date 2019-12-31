@@ -26,6 +26,14 @@ if test "$PROXY_HOST" && ping -q -c 1 -W 0.5 $PROXY_HOST > /dev/null 2>&1 ; then
     export VAGRANT_HTTPS_PROXY=$https_proxy
     export VAGRANT_NO_PROXY=$no_proxy
 
+    gsettings set org.gnome.system.proxy mode 'manual'
+    gsettings set org.gnome.system.proxy.http host "$PROXY_HOST"
+    gsettings set org.gnome.system.proxy.http port "$PROXY_PORT"
+    gsettings set org.gnome.system.proxy.ftp host "$PROXY_HOST"
+    gsettings set org.gnome.system.proxy.ftp port "$PROXY_PORT"
+    gsettings set org.gnome.system.proxy.https host "$PROXY_HOST"
+    gsettings set org.gnome.system.proxy.https port "$PROXY_PORT"
+
 else
 
     echo "not at work"
@@ -33,10 +41,11 @@ else
     unset https_proxy
     unset no_proxy
     unset ssh_proxy_command
-    rm $HOME/.docker/config.json
+    rm -f $HOME/.docker/config.json
 
     unset VAGRANT_HTTP_PROXY
     unset VAGRANT_HTTPS_PROXY
     unset VAGRANT_NO_PROXY
 
+    gsettings set org.gnome.system.proxy mode 'none'
 fi
