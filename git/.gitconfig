@@ -1,3 +1,9 @@
 [user]
 	email = bruno_paulin@bpaulin.net
 	name = bpaulin
+
+[include]
+	path = ~/.gitalias
+
+[core]
+	excludesfile = ~/.gitignore_global
