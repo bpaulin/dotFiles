@@ -7,6 +7,11 @@ if test "$PROXY_HOST" && ping -q -c 1 -W 0.5 $PROXY_HOST > /dev/null 2>&1 ; then
 
     export ssh_proxy_command="corkscrew $PROXY_HOST $PROXY_PORT %h %p $HOME/.ssh/auth"
     echo "$LDAP_USER:$LDAP_PASSWORD" > ~/.ssh/auth
+    mkdir -p $HOME/.ssh/config.d
+    echo "\
+Host *
+  ProxyCommand $ssh_proxy_command
+" > $HOME/.ssh/config.d/proxy
 
     mkdir -p $HOME/.docker
     echo "\
@@ -48,6 +53,8 @@ else
     unset VAGRANT_HTTP_PROXY
     unset VAGRANT_HTTPS_PROXY
     unset VAGRANT_NO_PROXY
+
+    rm -f $HOME/.ssh/config.d/proxy
 
     gsettings set org.gnome.system.proxy mode 'none'
 fi

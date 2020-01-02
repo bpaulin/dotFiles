@@ -97,7 +97,6 @@ export EDITOR='vim'
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias ssh="assh wrapper ssh"
 
 source $HOME/.private_env.sh
 source $HOME/.set_proxy.sh
