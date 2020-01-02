@@ -1,9 +1,10 @@
-[user]
-	email = bruno_paulin@bpaulin.net
-	name = bpaulin
-
 [include]
 	path = ~/.gitalias
+	path = ~/.git.d/user_perso
 
 [core]
 	excludesfile = ~/.gitignore_global
+
+[includeIf "gitdir:~/Work/"]
+	path = ~/.git.d/user_work
+
