@@ -33,6 +33,8 @@ if test "$PROXY_HOST" && ping -q -c 1 -W 0.5 $PROXY_HOST > /dev/null 2>&1 ; then
     gsettings set org.gnome.system.proxy.ftp port "$PROXY_PORT"
     gsettings set org.gnome.system.proxy.https host "$PROXY_HOST"
     gsettings set org.gnome.system.proxy.https port "$PROXY_PORT"
+    gsettings set org.gnome.system.proxy.http authentication-password "$LDAP_USER"
+    gsettings set org.gnome.system.proxy.http authentication-user "$LDAP_PASSWORD"
 
 else
 
