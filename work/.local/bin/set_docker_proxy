@@ -6,7 +6,7 @@ fi
 
 mkdir -p /etc/systemd/system/docker.service.d
 
-if test "$PROXY_HOST" && ping -q -c 1 -W 0.5 $PROXY_HOST > /dev/null 2>&1 ; then
+if test "$http_proxy" ; then
     echo "at work"
     echo "[Service]" > /etc/systemd/system/docker.service.d/http-proxy.conf
     echo "Environment=\"HTTP_PROXY=$http_proxy\"" >> /etc/systemd/system/docker.service.d/http-proxy.conf
