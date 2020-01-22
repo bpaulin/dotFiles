@@ -9,7 +9,7 @@ if test "$PROXY_HOST" && ping -q -c 1 -W 0.5 $PROXY_HOST > /dev/null 2>&1 ; then
     echo "$LDAP_USER:$LDAP_PASSWORD" > ~/.ssh/auth
     mkdir -p $HOME/.ssh/config.d
     echo "\
-Host *
+Host * !127.0.0.1
   ProxyCommand $ssh_proxy_command
 " > $HOME/.ssh/config.d/proxy
 
