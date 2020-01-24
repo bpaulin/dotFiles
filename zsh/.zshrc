@@ -98,5 +98,9 @@ export EDITOR='vim'
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-source $HOME/.private_env.sh
-source $HOME/.set_proxy.sh
+if [ -f "$HOME/.private_env.sh" ]; then
+    source "$HOME/.private_env.sh"
+fi
+if [ -f "$HOME/.set_proxy.sh" ]; then
+    source "$HOME/.set_proxy.sh"
+fi
