@@ -104,3 +104,8 @@ fi
 if [ -f "$HOME/.set_proxy.sh" ]; then
     source "$HOME/.set_proxy.sh"
 fi
+
+ansible-decrypt() {
+    #ansible inline decrypt
+    ansible localhost -m debug -a var="$1" -e "@$2" --vault-password-file "$3"
+}

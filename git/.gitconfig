@@ -63,3 +63,5 @@
   # fetch
   f = fetch --prune --all
 
+[credential]
+	helper = cache
