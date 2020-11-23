@@ -68,9 +68,13 @@
 
 [credential]
 	helper = store
+
 [pull]
 	rebase = false
 
 [gitget]
   root = ~/repos
   skip-host = false
+
+[include]
+	path = ~/.git.d/.gitconfig-C4
