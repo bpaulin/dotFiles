@@ -117,7 +117,19 @@ if [ -f "$HOME/.set_proxy.sh" ]; then
     source "$HOME/.set_proxy.sh"
 fi
 
+setopt +o nomatch
+for conf in `find "$HOME/.zshrc.d" -name '*.conf'`
+do
+  source $conf
+done
+setopt -o nomatch
+
+
 ansible-decrypt() {
     #ansible inline decrypt
     ansible localhost -m debug -a var="$1" -e "@$2" --vault-password-file "$3"
 }
+
+if type "thefuck" > /dev/null; then
+  eval $(thefuck --alias)
+fi
