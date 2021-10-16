@@ -13,7 +13,7 @@ set $mod Mod4
 
 # Gaps config
 
-for_window [class=".*"] border pixel 1
+for_window [class=".*"] border pixel 2
 smart_gaps on
 # smart_borders no_gaps
 gaps inner 5
@@ -191,7 +191,9 @@ bar {
     font pango: SauceCodePro Nerd Font 9
     position top
     status_command i3blocks
+    tray_output eDP1
 }
 
 exec_always --no-startup-id picom -b
-exec feh --bg-scale '/home/bruno_paulin/wallpaper.jpg'
+exec feh --bg-scale '~/wallpaper.jpg'
+exec dunst
